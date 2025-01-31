@@ -1,0 +1,16 @@
+{% extends "fitness/base.html" %}
+
+{% block title %}Aktualizacja trenera{% endblock %}
+
+{% block content %}
+<a href="{% url 'trener-list' %}">Powrót do listy trenerów</a>
+<br>
+<h1>Aktualizacja danych trenera</h1>
+
+  <form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Aktualizuj">
+ </form>
+
+ {% endblock %}

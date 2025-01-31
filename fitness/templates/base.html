@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <link href="{% static 'css/fitness.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <div id="header">
+            <h1>Aplikacja Siłownia</h1>
+        </div>
+        <div id="content">
+            {% block content %}
+            <a href="{% url 'trener-list' %}">Przejdź do listy trenerów</a>
+            {% endblock %}
+        </div>
+        <div id="footer">
+            <p>Copyright &copy; 2025 Siłownia</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+{% extends "fitness/base.html" %}
+
+{% block title %}Strona Główna{% endblock %}
+
+{% block content %}
+<h1>Witamy w Aplikacji Siłownia!</h1>
+<p>Wybierz jedną z opcji:</p>
+
+<ul>
+    <li><a href="{% url 'trener-list' %}">Lista Trenerów</a></li>
+    <li><a href="{% url 'zajecia-list' %}">Zajęcia</a></li>
+    <li><a href="{% url 'profil-list' %}">Profile Użytkowników</a></li>
+    <li><a href="{% url 'karnet-list' %}">Karnety</a></li>
+</ul>
+
+{% endblock %}

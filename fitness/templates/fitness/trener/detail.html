@@ -1,0 +1,44 @@
+{% extends "fitness/base.html" %}
+
+{% block title %}Szczegóły trenera{% endblock %}
+
+{% block content %}
+    <a href="{% url 'trener-list' %}">Powrót do listy trenerów</a>
+    <br>
+    <h1>Trener: {{ trener.imie }} {{ trener.nazwisko }}</h1>
+    <p>Lata w branży: {{ trener.lata_w_branzy }}</p>
+    <p>Specjalizacja: {{ trener.specjalizacja }}</p>
+
+    <hr>
+
+    <h1>Zajęcia: {{ zajecia.nazwa }}</h1>
+    <p>Poziom zaawansowania: {{ zajecia.get_poziom_zaawansowania_display }}</p>
+    <p>Trener prowadzący: {{ zajecia.trener.imie }} {{ zajecia.trener.nazwisko }}</p>
+    <p>Opis: {{ zajecia.opis }}</p>
+
+    <hr>
+
+    <h1>Profil użytkownika: {{ profil.user.username }}</h1>
+    <p>Email: {{ profil.user.email }}</p>
+    <p>Wiek: {{ profil.wiek }}</p>
+    <p>Poziom zaawansowania: {{ profil.get_poziom_zaawansowania_display }}</p>
+    <p>Data rejestracji: {{ profil.data_rejestracji }}</p>
+
+    <h2>Ulubione zajęcia</h2>
+    <ul>
+        {% for zajecie in profil.ulubione_zajecia.all %}
+            <li>{{ zajecie.nazwa }} ({{ zajecie.get_poziom_zaawansowania_display }})</li>
+        {% empty %}
+            <li>Brak ulubionych zajęć.</li>
+        {% endfor %}
+    </ul>
+
+    <hr>
+
+    <h1>Karnet dla {{ karnet.uzytkownik.user.username }}</h1>
+    <p>Typ karnetu: {{ karnet.get_typ_display }}</p>
+    <p>Data rozpoczęcia: {{ karnet.data_rozpoczecia }}</p>
+    <p>Data wygaśnięcia: {{ karnet.data_wygasniecia }}</p>
+    <p>Aktywny: {% if karnet.aktywny %}Tak ✅{% else %}Nie ❌{% endif %}</p>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Lista Zajęć</h1>
+<ul>
+    {% for zajecie in zajecia %}
+        <li>{{ zajecie.nazwa }} - {{ zajecie.get_poziom_zaawansowania_display }}</li>
+    {% empty %}
+        <li>Brak zajęć w bazie.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

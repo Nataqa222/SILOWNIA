@@ -1,0 +1,39 @@
+{% extends "fitness/base.html" %}
+
+{% block title %}Lista trenerów{% endblock %}
+
+{% block content %}
+<h3><a href="{% url 'trener-create' %}">Dodaj nowego trenera</a></h3>
+<h3>Wyszukaj po nazwisku</h3>
+<form action="" method="post">
+    {% csrf_token %}
+    <p>Szukana fraza: <input type="text" name="phrase"></p>
+    <p><input type="submit" value="Szukaj"></p>
+</form>
+<br>
+Aktualnie w bazie znajdują się następujący trenerzy.
+<table>
+    <thead>
+        <th>ID</th>
+        <th>Imię</th>
+        <th>Nazwisko</th>
+        <th>Specjalizacja</th>
+        <th>Lata w branży</th>
+        <th>Akcje</th>
+    </thead>
+    <tbody>
+{% for trener in trenerzy %}
+<tr>
+    <td>{{ trener.id }}</td>
+    <td>{{ trener.imie }}</td>
+    <td>{{ trener.nazwisko }}</td>
+    <td>{{ trener.specjalizacja }}</td>
+    <td>{{ trener.lata_w_branzy }}</td>
+    <td><a href="{% url 'trener-detail' trener.id %}">Szczegóły</a>
+    <a href="{% url 'trener-update' trener.id %}">Edytuj</a>
+    <a href="{% url 'trener-delete' trener.id %}">Usuń</a></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock %}

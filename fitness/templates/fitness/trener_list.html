@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Lista Trenerów</h1>
+<ul>
+    {% for trener in trenerzy %}
+        <li>{{ trener.imie }} {{ trener.nazwisko }} - {{ trener.specjalizacja }}</li>
+    {% empty %}
+        <li>Brak trenerów w bazie.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
+

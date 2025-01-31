@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Lista Karnetów</h1>
+<ul>
+    {% for karnet in karnety %}
+        <li>Karnet dla {{ karnet.uzytkownik.user.username }} - ważny do {{ karnet.data_wygasniecia }}</li>
+    {% empty %}
+        <li>Brak aktywnych karnetów.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

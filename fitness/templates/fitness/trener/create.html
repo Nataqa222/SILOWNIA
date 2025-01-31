@@ -1,0 +1,14 @@
+{% extends "fitness/base.html" %}
+
+{% block title %}Dodawanie nowego trenera{% endblock %}
+
+{% block content %}
+<h1>Dodaj nowego trenera</h1>
+
+  <form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Dodaj">
+ </form>
+
+ {% endblock %}
